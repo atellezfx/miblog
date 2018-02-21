@@ -1,0 +1,20 @@
+{
+    "name": "alejandro/miblog",
+    "description": "Proyecto Demo en PHP",
+    "type": "project",
+    "require": {
+        "monolog/monolog": "^1.23"
+    },
+    "license": "GNU General Public License (GPL)",
+    "authors": [
+        {
+            "name": "atellez"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Utel\\Config\\" : "src/config",
+            "Utel\\Sql\\" : "src/sql"
+        }
+    }
+}

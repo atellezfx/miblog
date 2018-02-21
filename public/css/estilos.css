@@ -1,0 +1,15 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,500,700');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+body {
+    font-family: Raleway, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+}
+
+.logotipo {
+    font-weight: 700;
+}
+
+
