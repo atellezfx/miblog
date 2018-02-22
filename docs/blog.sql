@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS `miblog`;
-CREATE DATABASE IF NOT EXISTS `miblog`;
+CREATE DATABASE IF NOT EXISTS `miblog` CHARACTER SET `utf8`;
 USE `miblog`;
+SET names 'utf8';
 
 CREATE TABLE IF NOT EXISTS `usuario` (
     `username` varchar(20) NOT NULL,
@@ -11,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
     `rol`varchar(100) NOT NULL DEFAULT 'usuario',
     PRIMARY KEY (`username`),
     KEY `idx_usuario_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB CHARACTER SET=utf8;
 
 CREATE TABLE IF NOT EXISTS `articulo` (
     `id` INT AUTO_INCREMENT,
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `articulo` (
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_articulo_autor` FOREIGN KEY (`autor`)
 	    REFERENCES `usuario`(`username`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB CHARACTER SET=utf8;
 
 delimiter //
 CREATE TRIGGER `articulo_actualizado` BEFORE UPDATE ON `articulo`
@@ -38,9 +39,8 @@ INSERT INTO `usuario`(`username`,`password`,`nombre`,`apellidos`, `email`, `rol`
     ('admin', md5('12345'), 'Administrador','','administrador@correo.com','admin'),
     ('demo', md5('12345'), 'Demo','','demo@correo.com','usuario');
 
-
 INSERT INTO `articulo`(`titulo`, `extracto`, `texto`, `thumb`,`autor`) VALUES 
-('Tulum', 'Tulum o Tuluum fue una ciudad amurallada de la cultura maya ubicada en el Estado de Quintana Roo, en el sureste de México, en la costa del mar Caribe.', 'La ciudad recibía en la antigüedad el nombre maya de Zamá (que significa en maya amanecer) y el actual, Tulum (que significa en maya muralla), que parece haber sido utilizado para referirse a la ciudad cuando ya se encontraba en ruinas. Por los numerosos registros en murales y otros trabajos encontrados en los edificios de la ciudad, se tiene considerado que Tulum fue un importante centro de culto para el llamado "dios descendente".
+('Tulúm', 'Tulum o Tuluum fue una ciudad amurallada de la cultura maya ubicada en el Estado de Quintana Roo, en el sureste de México, en la costa del mar Caribe.', 'La ciudad recibía en la antigüedad el nombre maya de Zamá (que significa en maya amanecer) y el actual, Tulum (que significa en maya muralla), que parece haber sido utilizado para referirse a la ciudad cuando ya se encontraba en ruinas. Por los numerosos registros en murales y otros trabajos encontrados en los edificios de la ciudad, se tiene considerado que Tulum fue un importante centro de culto para el llamado "dios descendente".
 
 Aunque se han encontrado inscripciones que datan de 564, la mayor parte de los edificios que se aprecian hoy en día fueron construidos en el periodo posclásico de la civilización maya, entre los años 1200 y 1450. La ciudad todavía era habitada en los primeros años de la colonia española pero a finales del siglo XVI ya no quedaban residentes.
 

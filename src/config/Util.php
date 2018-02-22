@@ -12,7 +12,7 @@ class Util {
 
     public static function getDBConnection() {
         try {
-            $conexion = new PDO('mysql:host=localhost;dbname=miblog', 'root', '');
+            $conexion = new PDO('mysql:host=localhost;dbname=miblog;charset=utf8', 'root', '');
             return $conexion;
         } catch(\PDOException $ex) {
             Util::getLogger()->error($ex->getMessage());
